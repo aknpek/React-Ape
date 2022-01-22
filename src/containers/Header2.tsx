@@ -5,7 +5,7 @@ import { scroller } from "react-scroll";
 
 import { ReactComponent as DiscordSvg } from "../data/Discord.svg";
 import { ReactComponent as TwitterSvg } from "../data/Twitter.svg";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 // import Discord from '../svgs/Discord';
 
 interface IHeaderDiv {
