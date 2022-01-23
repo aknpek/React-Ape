@@ -1,5 +1,7 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import styled from "styled-components";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const Enter = styled.div`
   height: 1200px;
@@ -70,10 +72,23 @@ const Enter = styled.div`
 `;
 
 function Enterence() {
+  let refPictures = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(refPictures.current!, {
+      y: 100,
+      opacity: 0.4,
+      scale: 0.3,
+      duration: 0.8,
+      delay: 0,
+    });
+  });
+
   return (
     <Enter>
       <div>
-        <img src="enterence_cover.png"></img>
+        <img ref={refPictures} src="enterence_cover.png"></img>
         <img src="enterence_cer.png"></img>
       </div>
     </Enter>

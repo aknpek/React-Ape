@@ -32,7 +32,7 @@ const team: ITeamData[] = [
 ];
 
 const TeamContainer = styled.div`
-  height: 60rem;
+  height: 1000px;
   width: 100%;
   background-color: black;
   display: flex;
@@ -42,21 +42,24 @@ const TeamContainer = styled.div`
 
   div {
     width: 95%;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
 
     div {
-      height: 20rem;
-      width: 20rem;
+      height: 600px;
+      width: 300px;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
 
-      img {
-        height: 20rem;
-        width: 20rem;
+      div{
+        img {
+        height: 300px;
+        width: 300px;
         position: absolute;
+      }
       }
       .inner {
         display: flex;
@@ -69,9 +72,8 @@ const TeamContainer = styled.div`
 
       div {
         display: flex;
-        position: absolute;
-        margin-top: 30rem;
-        height: 100px;
+        height: 200px;
+        margin-top: 200px;
         flex-direction: column;
         color: #edcb6e;
         h1 {
@@ -85,16 +87,18 @@ const TeamContainer = styled.div`
   }
 
   @media screen and (max-width: 1300px) {
-    height: 1500px;
+    height: 1700px;
+
     div {
-      flex-wrap: wrap;
+    flex-wrap: wrap;
+      flex: 50%;
 
       div {
-        margin-top: 10rem;
-        flex: 50%;
+        /* margin-top: 150px; */
+          flex-wrap: initial;
+
 
         div{
-          flex-wrap: initial;
         }
       }
     }
@@ -121,8 +125,10 @@ function Team() {
       <div>
         {team.map((member: ITeamData) => (
           <div>
+            <div>
             <img className="inner" src="team_cer.png"></img>
             <img className="outer" src={member.img}></img>
+            </div>
             <div>
               <h1>{member.title}</h1>
               <h2>{member.subTitle}</h2>

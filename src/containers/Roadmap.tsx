@@ -75,7 +75,6 @@ const RoadmapOm = styled.div`
       transition: 0.15s;
 
       .img1 {
-        margin-top: 5rem;
       }
 
       .img2 {
@@ -96,21 +95,21 @@ const RoadmapOm = styled.div`
       }
 
       .id1 {
-        margin-left: -4rem;
-        margin-top: -11rem;
+        margin-left: -50px;
+        margin-top: -210px;
       }
 
       .id2 {
-        margin-left: -4rem;
-        margin-top: -10.5rem;
+        margin-left: -50px;
+        margin-top: -205px;
       }
       .id3 {
-        margin-left: -3rem;
-        margin-top: -10rem;
+        margin-left: -50px;
+        margin-top: -200px;
       }
 
       .id4 {
-        margin-top: -14.5rem;
+        margin-top: -270px;
       }
     }
 
@@ -157,11 +156,11 @@ const RoadmapOm = styled.div`
   @media screen and (max-width: 1200px) {
     div {
       .imgContainer {
-        transform: scale(0.8);
+        /* transform: scale(0.8); */
 
-        .id1 {
-          margin-left: -6rem;
-          margin-top: -22rem;
+        /* .id1 {
+          margin-left: -100px;
+          margin-top: -170px;
         }
 
         .id2 {
@@ -177,7 +176,7 @@ const RoadmapOm = styled.div`
         .id4 {
           margin-top: -28.5rem;
         }
-      }
+      } */
     }
   }
 
@@ -187,7 +186,7 @@ const RoadmapOm = styled.div`
     margin-bottom: 2rem;
 
       .imgContainer {
-        transform: scale(0.5);
+        /* transform: scale(0.5); */
       }
       .textContainer{
         width: 60%;
@@ -196,30 +195,78 @@ const RoadmapOm = styled.div`
       }
     }
   }
+
+
+
+  @media screen and (max-width: 500px) {
+    height: 3500px;
+
+    div {
+      /* margin-top: 2rem;
+    margin-bottom: 2rem; */
+    margin-right: 0rem;
+    margin-left: 0rem;
+      width: 100%;
+
+      .imgContainer { 
+        transform: scale(0.5);
+
+        @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+            .id1 {
+          margin-left: -100px;
+          margin-top: -420px;
+        }
+
+        .id2 {
+          margin-left: -100px;
+          margin-top: -420px;
+        }
+
+        .id3 {
+          margin-left: -100px;
+          margin-top: -400px;
+        }
+
+        .id4 {
+          margin-top: -530px;
+        }
+      }
+     
+        }
+      }
+      .textContainer{
+        width: 60%;
+        h3{
+        }
+      }
+    }
+  }
+  
 `;
 
 const EachImage: React.FC<roadItem> = (props) => {
   let refEachImage = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(refEachImage.current!, {
-      y: 20,
-      opacity: 0.1,
-      scale: 0.5,
-      delay: 0,
-      duration: 0.3,
-      scrollTrigger: {
-        trigger: refEachImage.current!,
-        toggleActions: "play none none reverse",
-      },
-    });
-  });
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   gsap.from(refEachImage.current!, {
+  //     y: 20,
+  //     opacity: 0.1,
+  //     scale: 0.5,
+  //     delay: 0,
+  //     duration: 0.3,
+  //     scrollTrigger: {
+  //       trigger: refEachImage.current!,
+  //       toggleActions: "play none none reverse",
+  //     },
+  //   });
+  // });
 
   return (
     <div>
       <div className={"imgContainer"}>
-        <img className={"img1"} src={props.img1}></img>
         <img className={`img2 id${props.id}`} src={props.img2}></img>
+        <img className={"img1"} src={props.img1}></img>
+
       </div>
       <div className={"textContainer"} ref={refEachImage}>
         {props.text.map((itemInside) => (
